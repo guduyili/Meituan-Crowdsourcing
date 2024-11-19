@@ -110,13 +110,38 @@ public class EmployeeServiceImpl implements EmployeeService {
     public PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO){
         //select * from employee limit 0,10
         //开始分页查询
+
+        //这是PageHelper提供的静态方法，用于设置分页参数，用于设置分页参数，
+        //调用这个方法后，接下来的第一个数据库查询将自动被分页处理
         PageHelper.startPage(employeePageQueryDTO.getPage(),employeePageQueryDTO.getPageSize());
 
-       Page<Employee> page =  employeeMapper.pageQuery(employeePageQueryDTO);
+        // 调用 Mapper 的分页查询方法
+        Page<Employee> page = employeeMapper.pageQuery(employeePageQueryDTO);
 
-       long total =  page.getTotal();
-       List<Employee> records = page.getResult();
+        // 获取总记录数
+        long total = page.getTotal();
 
-        return new PageResult(total,records);
+        // 获取当前页的记录列表
+        List<Employee> records = page.getResult();
+
+        // 将结果封装到 PageResult 对象中并返回
+        return new PageResult(total, records);
+    }
+
+    public  void startOrStop(Integer status, long id){
+        //update employee set status =? where id =?
+
+/*        Employee employee = new Employee();
+        employee.setStatus(status);
+        employee.setId(id);*/
+
+        Employee employee = Employee.builder()
+                .status(status)
+                .id(id)
+                .build();
+
+
+        employeeMapper.update(employee);
+
     }
 }
