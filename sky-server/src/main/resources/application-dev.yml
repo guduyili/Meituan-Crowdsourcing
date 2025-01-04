@@ -8,6 +8,13 @@ sky:
     password: 1412
   alioss:
     endpoint: oss-cn-chengdu.aliyuncs.com
-    access-key-id: LTAI5t9n57wA2HMTpFs69mbx
-    access-key-secret: 5AhUIi4HqVNvRfsdxY2xfCmUztMqyG
+    access-key-id: LTAI5tDUk8vCMri5oxWMfz6o
+    access-key-secret: GdP0pulxgPp9sezKcnvVO2CqTCxP7a
     bucket-name: guduyili
+  redis:
+    host: localhost
+    port: 6379
+    password: 1412
+    database: 10
+
+
