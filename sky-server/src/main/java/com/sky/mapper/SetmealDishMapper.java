@@ -14,5 +14,10 @@ import java.util.List;
 @Mapper
 public interface SetmealDishMapper {
     //select setmeal id from setmeal dish where dish_id in (1,2,3,4)
-    List<Long>getSetmealByDishIds(List<Long> dishIds);
+    /**
+     * 判断当前菜品是否被套餐关联了
+     * @param ids
+     * @return
+     */
+    List<Long> getSetmealIdsByDishIds(List<Long> ids);
 }
