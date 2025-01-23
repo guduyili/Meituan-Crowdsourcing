@@ -59,4 +59,8 @@
             from orders where status=#{status}
                           and order_time &lt; #{orderTime};
     </select>
+
+    <select id="getById" resultType="com.sky.entity.Orders">
+        select * from orders where id = #{id}
+    </select>
 </mapper>
