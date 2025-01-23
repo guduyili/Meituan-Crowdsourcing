@@ -28,8 +28,8 @@ public class OrderTask {
     /**
      * 处理支付超时订单
      */
-    // @Scheduled(cron = "0 * * * * ?")//每分钟执行一次
-    @Scheduled(cron = "0/5 * * * * ?")
+    @Scheduled(cron = "0 * * * * ?")//每分钟执行一次
+   // @Scheduled(cron = "0/5 * * * * ?")
     public void processTimeoutOrder(){
         log.info("处理支付超时订单：{}",new Date());
 
