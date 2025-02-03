@@ -28,7 +28,7 @@ import java.time.LocalDate;
 @RequestMapping("/admin/report")
 @Slf4j
 @Api(tags = "统计表相关接口")
-public class RestControllet {
+public class ReportController {
     @Autowired
     private ReportService reportService;
 
